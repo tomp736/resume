@@ -36,7 +36,7 @@ EXPERIENCE
  - Learned .net, c#, vb, sql, html, winforms, and webforms. 
 
 EDUCATION
-=========
+----------
  - Oakton Community College - C++ courses (2014-15)
  - DePaul University, Chicago — B.A Business, Finance (2010-13)
  - Harper College, Network Systems Networking and Telecommunications certificate. (2009-10)
