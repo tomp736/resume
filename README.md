@@ -37,6 +37,7 @@ EXPERIENCE
 
 EDUCATION
 ----------
+ - Regularly participate in Oreilly Live Training, Pluralsight, and Conferences (dotnetos, ndc).
  - Oakton Community College - C++ courses (2014-15)
  - DePaul University, Chicago — B.A Business, Finance (2010-13)
  - Harper College, Network Systems Networking and Telecommunications certificate. (2009-10)
