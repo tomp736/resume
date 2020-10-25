@@ -5,7 +5,7 @@ tompisula@gmail.com | [github.com/tomp736](http://github.com/tomp736)
 Technologies
 ---------------
 * **Web Dev**: MSSQL, ASP.Net C# MVC, .Net Full Framework, .Net Core, HTML, CSS
-* **Intereted in**: .Net Core, Docker, Terraform, Microservice Architecture
+* **Intereted in**: Linux, .Net Core, Docker, Kubernetes, Cloud Native
 
 EXPERIENCE
 ----------
