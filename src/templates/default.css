@@ -87,9 +87,9 @@ li:first-child {
 }
 
 .table .main .highlights li {
-    font-size: 14px;
+    font-size: 15px;
     list-style: none;
-    line-height: 1.2;
+    line-height: 1.4;
 }
 
 .table .main .highlights li:before {
@@ -263,11 +263,13 @@ li:first-child {
 }
 
 .basics .side .contact li {
-    line-height: 1.5em;
+    line-height: 1em;
 }
 
-.basics .side .contact li image {
-    height: 15px
+.basics .side .contact li > img {
+    height: 18px;
+    margin-top: -17px;
+    margin-bottom: -1px;
 }
 
 .basics .summary {
@@ -355,19 +357,19 @@ li:first-child {
     column-gap: 10px;
 }
 
-.skills .container .article {
+.skills .container {
     break-inside: avoid-column;
-    width: 120px;
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.skills .container .article span {
+.skills .container span {
     display: block;
     font-size: 18px;
     font-weight: lighter;
 }
 
-.skills .container .article li {
+.skills .container li {
     font-size: 14px;
     list-style: none;
     line-height: 1.3;
