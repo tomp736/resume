@@ -32,7 +32,7 @@ jobs:
       - 
         name: Copy file(s).
         run: |
-          cp src/static container/public-html/static
+          cp -r src/static container/public-html/static
           cp src/index.html container/public-html/index.html
           cp src/templates/default.css container/public-html/default.css
       - 
