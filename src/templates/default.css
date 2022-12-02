@@ -266,6 +266,10 @@ li:first-child {
     line-height: 1.5em;
 }
 
+.basics .side .contact li image {
+    height: 15px
+}
+
 .basics .summary {
     font-size: 16px;
     padding: 20px 0;

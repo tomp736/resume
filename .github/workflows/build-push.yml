@@ -27,11 +27,12 @@ jobs:
         name: Pull latest resume json and build page.
         run: |
           cd src
-          wget https://gist.githubusercontent.com/tomp736/dbe65122dd7bca0a0d08a1758997ef50/raw/resume.json
+          wget https://gist.github.com/tomp736/dbe65122dd7bca0a0d08a1758997ef50/raw/ -O resume.json
           python build_resume.py > index.html
       - 
         name: Copy file(s).
         run: |
+          cp src/static container/public-html/static
           cp src/index.html container/public-html/index.html
           cp src/templates/default.css container/public-html/default.css
       - 

@@ -18,6 +18,14 @@
                         {%- if basics.location is defined -%}
                             <li class="margin-text-3">TODO</li>
                         {% endif %}
+                        {%- if basics.profiles is defined %}
+                        {%- for item_profiles in basics.profiles %}
+                        <li class="margin-text-2">
+                            <a href="{{ item_profiles.url }}">{{ item_profiles.network }} ({{ item_profiles.username }})</a> 
+                            <img alt="" class="icon" src="static/{{ item_profiles.network }}.png" />
+                        </li>
+                        {%- endfor %}
+                        {%- endif %}
                     </ul>
                 </div>
             </div>
@@ -43,7 +51,7 @@
                                             <a href="{{ item_work.url }}">{{ item_work.name }}</a> · {{ item_work.location }}</span>
                                     </div>
                                     <div class="right">
-                                        <span class="dates">{{ item_work.startDate }} - {{ item_work.endDate }}</span>
+                                        <span class="dates">{{ item_work.start.month }}/{{ item_work.start.year }} - {{ item_work.end.month }}/{{ item_work.end.year }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -65,23 +73,40 @@
                 </div>
             </div>
             <div class="side">
-                <div class="skills margin-container-4">
-                    <p class="section-title no-alone-1">Skills</p>
+                {%- if certificates is defined -%}
+                <div class="education margin-container-2">
+                    <p class="section-title no-alone-1">Certificates</p>
                     <div class="container">
-                        {%- for item_skill in skills -%}
-                        <div class="article no-break"><span>{{ item_skill.name }}</span>
-                            <ul class="margin-text-1">
-                                {%- for item_skill_keyword in item_skill.keywords %}
-                                <li>{{ item_skill_keyword }}</li>
-                                {%- endfor %}
-                            </ul>
+                        {%- for item_certificate in certificates -%}
+                        <div class="article margin-container-2 no-break">
+                            <div class="title markdown">
+                                <p>{{ item_certificate.name }}, {{ item_certificate.date }}</p>
+                            </div>
+                            <span class="issuer margin-text-1"><a href="{{ item_certificate.url }}">{{ item_certificate.issuer }}</a></span>
                         </div>
                         {%- endfor %}
                     </div>
                 </div>
+                {%- endif -%}
+
+                {%- if skills is defined -%}
+                <div class="skills margin-container-2">
+                    <p class="section-title no-alone-1">Skills</p>
+                    {%- for item_skill in skills -%}
+                    <span>{{ item_skill.name }}</span>
+                    <div class="container">
+                        <ul class="margin-text-1">
+                            {%- for item_skill_keyword in item_skill.keywords %}
+                            <li>{{ item_skill_keyword }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div> 
+                    {%- endfor %}                       
+                </div>
+                {%- endif -%}
 
                 {%- if education is defined -%}
-                <div class="education margin-container-4">
+                <div class="education margin-container-2">
                     <p class="section-title no-alone-1">Education</p>
                     <div class="container">
                         {%- for item_education in education -%}
@@ -110,7 +135,7 @@
                 {%- endif -%}
 
                 {%- if interests is defined -%}
-                <div class="interests margin-container-4 no-break">
+                <div class="interests margin-container-2 no-break">
                     <p class="section-title no-alone-1">Interests</p>
                     <div class="container">
                         <ul>
@@ -123,29 +148,12 @@
                 {%- endif -%}
 
                 {%- if languages is defined %}
-                <div class="interests margin-container-4 no-break">
-                    <p class="section-title no-alone-1">Interests</p>
+                <div class="interests margin-container-2 no-break">
+                    <p class="section-title no-alone-1">Languages</p>
                     <div class="container">
                         <ul>
                             {%- for item_languages in languages %}
                             <li class="article margin-text-1">{{ item_languages.language }}, {{ item_languages.fluency }}</li>
-                            {%- endfor %}
-                        </ul>
-                    </div>
-                </div>
-                {%- endif %}
-
-                {%- if basics.profiles is defined %}
-                <div class="links margin-container-4 no-break">
-                    <p class="section-title no-alone-1">Links</p>
-                    <div class="container">
-                        <ul>
-                            {%- for item_profiles in basics.profiles %}
-                            <li class="article margin-text-2">
-                                <a href="{{ item_profiles.url }}">
-                                    {{ item_profiles.network }}
-                                </a>
-                            </li>
                             {%- endfor %}
                         </ul>
                     </div>
