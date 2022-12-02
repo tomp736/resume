@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
       packages: write    
 
     steps:
@@ -37,6 +37,12 @@ jobs:
         with:
           name: files
           path: container/public-html/*
+      - 
+        if: github.ref == 'refs/heads/main'
+        name: GH Pages Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: container/public-html/
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
