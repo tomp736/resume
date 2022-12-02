@@ -1,0 +1,160 @@
+{# templates/default.html #}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="default.css">
+    <title>Actual theme for JSON Resume</title>
+</head>
+<body>
+    <div class="content">
+        <div class="basics">
+            <div class="table">
+                <div class="main"><span class="name">{{ basics.name }}</span><span class="label">Software Engineer</span></div>
+                <div class="side">
+                    <ul class="contact">
+                        <li></li>
+                        <li>{{ basics.email }}</li>
+                        {%- if basics.location is defined -%}
+                            <li class="margin-text-3">TODO</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {%- if basics.summary is defined -%}
+            <div class="summary markdown">
+                <p>{{ basics.summary }}</p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="table">
+            <div class="main">
+                <div class="work margin-container-4">
+                    {%- if work is defined %}
+                    <p class="section-title no-alone-2">Experience</p>
+                    <div class="container">
+                        {%- for item_work in work %}
+                        <div class="article margin-container-3">
+                            <div class="header no-alone-1">
+                                <div class="table">
+                                    <div class="left">
+                                        <span class="position">{{ item_work.position }}</span>
+                                        <span class="company-location margin-text-1">
+                                            <a href="{{ item_work.url }}">{{ item_work.name }}</a> · {{ item_work.location }}</span>
+                                    </div>
+                                    <div class="right">
+                                        <span class="dates">{{ item_work.startDate }} - {{ item_work.endDate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary markdown">
+                                <p>{{ item_work.summary }}</p>
+                            </div>
+
+                            {%- if item_work.highlights is defined %}
+                            <ul class="highlights no-break">
+                                {%- for item_work_highlights in item_work.highlights %}
+                                <li>{{ item_work_highlights }}</li>
+                                {%- endfor %}
+                            </ul>
+                            {%- endif %}
+                        </div>
+                        {%- endfor %}
+                    </div>
+                    {%- endif %}
+                </div>
+            </div>
+            <div class="side">
+                <div class="skills margin-container-4">
+                    <p class="section-title no-alone-1">Skills</p>
+                    <div class="container">
+                        {%- for item_skill in skills -%}
+                        <div class="article no-break"><span>{{ item_skill.name }}</span>
+                            <ul class="margin-text-1">
+                                {%- for item_skill_keyword in item_skill.keywords %}
+                                <li>{{ item_skill_keyword }}</li>
+                                {%- endfor %}
+                            </ul>
+                        </div>
+                        {%- endfor %}
+                    </div>
+                </div>
+
+                {%- if education is defined -%}
+                <div class="education margin-container-4">
+                    <p class="section-title no-alone-1">Education</p>
+                    <div class="container">
+                        {%- for item_education in education -%}
+                        <div class="article margin-container-2 no-break">
+                            <div class="title markdown">
+                                <p>{{ item_education.studyType }}, {{ item_education.area }}</p>
+                            </div>
+                            <span class="institution margin-text-1"><a href="{{ item_education.url }}">{{ item_education.institution }}</a></span>
+                        </div>
+                        {%- endfor %}
+                    </div>
+                </div>
+                {%- endif -%}
+
+                {%- if awards is defined -%}
+                <div class="awards margin-container-4">
+                    <p class="section-title no-alone-1">Awards</p>
+                    <div class="container">
+                        <div class="article margin-container-2 no-break">
+                            <div class="header"><span class="awarder">Fight For The Future</span> · <span
+                                    class="title">Defender of the Internet</span></div>
+                            <div class="summary markdown margin-text-1"></div>
+                        </div>
+                    </div>
+                </div>
+                {%- endif -%}
+
+                {%- if interests is defined -%}
+                <div class="interests margin-container-4 no-break">
+                    <p class="section-title no-alone-1">Interests</p>
+                    <div class="container">
+                        <ul>
+                            {%- for item_interests in interests %}
+                            <li class="article margin-text-1">{{ item_interests.name }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {%- endif -%}
+
+                {%- if languages is defined %}
+                <div class="interests margin-container-4 no-break">
+                    <p class="section-title no-alone-1">Interests</p>
+                    <div class="container">
+                        <ul>
+                            {%- for item_languages in languages %}
+                            <li class="article margin-text-1">{{ item_languages.language }}, {{ item_languages.fluency }}</li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {%- endif %}
+
+                {%- if basics.profiles is defined %}
+                <div class="links margin-container-4 no-break">
+                    <p class="section-title no-alone-1">Links</p>
+                    <div class="container">
+                        <ul>
+                            {%- for item_profiles in basics.profiles %}
+                            <li class="article margin-text-2">
+                                <a href="{{ item_profiles.url }}">
+                                    {{ item_profiles.network }}
+                                </a>
+                            </li>
+                            {%- endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {%- endif %}
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

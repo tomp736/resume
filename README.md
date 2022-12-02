@@ -1,2 +1,8 @@
-# resume
-Resume site/container
+# Resume
+
+Resume builder
+
+- [x] resume template
+- [x] resume json
+- [x] script to generate html from json (jinja2 + python)
+- [ ] docker container
