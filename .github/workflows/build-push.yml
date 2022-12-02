@@ -48,7 +48,7 @@ jobs:
         name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./container
           push: true
           tags: |
             ghcr.io/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ env.BRANCH_NAME }}
