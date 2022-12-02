@@ -31,6 +31,12 @@ jobs:
         run: |
           cp src/index.html container/public-html/index.html
           cp src/templates/default.css container/public-html/default.css
+      - 
+        name: Archive resume file(s).
+        uses: actions/upload-artifact@v3
+        with:
+          name: files
+          path: container/public-html/*
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
