@@ -1,0 +1,1 @@
+wget https://gist.githubusercontent.com/tomp736/dbe65122dd7bca0a0d08a1758997ef50/raw/resume.json
